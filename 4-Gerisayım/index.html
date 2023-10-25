@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box">
+        <div class="renk" id="box1"></div>
+        <div class="renk"  id="box2"></div>
+        <div class="renk"  id="box3"></div>
+    </div>
+    <script>
+        var saat = prompt("saat",0);
+        var dakika =prompt("dakika",0);
+        var saniye =prompt("saniye",0);
+        var a = setInterval(function () {
+            document.getElementById("box1").innerHTML = saat;
+            document.getElementById("box2").innerHTML = dakika;
+            document.getElementById("box3").innerHTML = saniye--;
+
+            if (Number(document.getElementById("box3").innerHTML) == 0) {
+                dakika--;
+                saniye = 59;
+            }
+            if (Number(document.getElementById("box2").innerHTML) == 0 &&
+                Number(document.getElementById("box3").innerHTML) == 0) {
+                saat--;
+                dakika = 59;
+            }
+            if (Number(document.getElementById("box1").innerHTML) == 0 &&
+                Number(document.getElementById("box2").innerHTML) == 0 &&
+                Number(document.getElementById("box3").innerHTML) == 0) {
+                clearInterval(a)
+            }
+            if(Number(document.getElementById("box1").innerHTML) == 0 &&
+                Number(document.getElementById("box2").innerHTML) == 0 &&
+                Number(document.getElementById("box3").innerHTML) == 10){
+                
+            for (i=0; i<3; i++) {
+                document.getElementsByClassName("renk")[i].style.backgroundColor ="red";
+            }
+        }
+
+        }, 1000)
+    </script>
+</body>
+
+</html>
